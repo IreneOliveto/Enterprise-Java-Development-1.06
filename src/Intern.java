@@ -1,25 +1,23 @@
 public class Intern extends Employee {
 
-    public Intern(String name, String surname, double salary) {
-        super(name, surname);
-        double salaryLimit;
-    }
+    private static final int MAX_SALARY = 20000;
 
-    public void salaryLimit() {
-        if (int salary > 2000) {
-            System.err.println("Your salary is too high for your position!");
-        }
+    //constructor
+    public Intern(String name, String surname, /*int idNumber, String role,*/ double salary) {
+        setName(name);
+        setSurname(surname);
+        /*setIdNumber(idNumber);
+        setRole(role);*/
+        setSalary(salary);
     }
 
     //setter
-    public void setSalaryLimit(String salaryLimit) {
-        this.salaryLimit = salaryLimit;
+    public void setSalary(double salary) {
+        if(salary <= MAX_SALARY){
+            super.setSalary(salary);
+        }else {
+            super.setSalary(MAX_SALARY);
+        }
     }
-
-    //getter
-    public double getSalaryLimit() {
-        return this.salaryLimit;
-    }
-
 
 }
